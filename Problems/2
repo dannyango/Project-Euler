@@ -1,0 +1,5 @@
+i = 0;
+sumNum = 0;
+While[Fibonacci[i] < 4000000, 
+  If[Mod[Fibonacci[i], 2] == 0, sumNum += Fibonacci[i]]; i++];
+sumNum
