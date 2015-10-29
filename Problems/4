@@ -1,0 +1,7 @@
+i = 0;
+j = 0;
+prodNum = 0;
+While[i < 1000,
+ While[i >= j,
+  If[IntegerDigits[i*j] == Reverse[IntegerDigits[i*j]], 
+   If[prodNum < i*j, prodNum = i*j]]; j++]; i++; j = 0]
