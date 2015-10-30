@@ -1,0 +1,7 @@
+sumSquares = 0;
+squareSums = 0;
+i = 0;
+j = 0;
+While[i <= 100, sumSquares += i^2; i++]
+While[j <= 100, squareSums += j; j++]
+squareSums^2 - sumSquares
