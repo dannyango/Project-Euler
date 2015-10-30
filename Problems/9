@@ -6,3 +6,11 @@ While[a <= 1000,
   While[c <= 1000 - a - b, 
    If[a + b + c == 1000 && a^2 + b^2 == c^2, Print[a b c]; Abort[];]; 
    c++]; b++; c = 1]; a++; b = 1]
+
+(*faster brute force*)
+a = 1;
+b = 1;
+c = 0;
+While[a <= 1000, 
+ While[b <= a, c = Sqrt[a^2 + b^2]; 
+  If[a + b + c == 1000, Print[a b c]; Abort[]]; b++]; a++; b = 1]
