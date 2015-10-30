@@ -1,0 +1,4 @@
+i = 1;
+sum = 0;
+While[Prime[i] < 2000000, sum += Prime[i]; i++]
+sum
