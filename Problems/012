@@ -1,0 +1,3 @@
+triNum = 0;
+While[Length[Divisors[Sum[i, {i, triNum}]]] <= 500, triNum++]
+Sum[i, {i, triNum}]
