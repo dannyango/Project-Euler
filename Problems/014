@@ -1,14 +1,10 @@
-startNum = 500000;
-sequence = 500000;
+chain = 500000;
 steps = 1;
 longestNum = 0;
 longestSteps = 0;
-f[x_] := x/2;
-g[x_] := 3 x + 1;
-While[startNum < 1000000, 
- While[sequence != 1, 
-  If[EvenQ[sequence], sequence = f[sequence], sequence = g[sequence]];
-   steps++]; 
- If[steps > longestSteps, longestSteps = steps; 
-  longestNum = startNum]; startNum++; sequence = startNum; steps = 1]
+f[x_] := f[x] = If[EvenQ[x], x/2, 3 x + 1]
+For[startNum = 500000, startNum < 1000000, startNum++, 
+ chain = startNum; steps = 1; 
+ While[chain != 1, chain = f[chain]; steps++]; 
+ If[steps > longestSteps, longestSteps = steps; longestNum = startNum]]
 ?longestNum
