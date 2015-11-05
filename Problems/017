@@ -1,0 +1,76 @@
+letters = 0;
+For[i = 1, i <= 1000, i++, Which[
+  (*4 digit*)
+  Length[IntegerDigits[i]] == 4, letters += 11,
+  (*3 digit*)
+  Length[IntegerDigits[i]] == 3,
+  Which[
+   IntegerDigits[i][[1]] == 1, letters += 3, IntegerDigits[i][[1]] == 2, 
+   letters += 3, IntegerDigits[i][[1]] == 3, letters += 5, 
+   IntegerDigits[i][[1]] == 4, letters += 4, IntegerDigits[i][[1]] == 5, 
+   letters += 4, IntegerDigits[i][[1]] == 6, letters += 3, 
+   IntegerDigits[i][[1]] == 7, letters += 5, IntegerDigits[i][[1]] == 8, 
+   letters += 5, IntegerDigits[i][[1]] == 9, letters += 4];
+  If[IntegerDigits[i][[2]] == 1,
+   Which[
+    IntegerDigits[i][[3]] == 1, letters += 6, IntegerDigits[i][[3]] == 2, 
+    letters += 6, IntegerDigits[i][[3]] == 3, letters += 8, 
+    IntegerDigits[i][[3]] == 4, letters += 8, IntegerDigits[i][[3]] == 5, 
+    letters += 7, IntegerDigits[i][[3]] == 6, letters += 7, 
+    IntegerDigits[i][[3]] == 7, letters += 9, IntegerDigits[i][[3]] == 8, 
+    letters += 9, IntegerDigits[i][[3]] == 9, letters += 7, 
+    IntegerDigits[i][[3]] == 0, letters += 3],
+   Which[
+    IntegerDigits[i][[2]] == 2, letters += 6, IntegerDigits[i][[2]] == 3, 
+    letters += 6, IntegerDigits[i][[2]] == 4, letters += 5, 
+    IntegerDigits[i][[2]] == 5, letters += 5, IntegerDigits[i][[2]] == 6, 
+    letters += 5, IntegerDigits[i][[2]] == 7, letters += 7, 
+    IntegerDigits[i][[2]] == 8, letters += 6, IntegerDigits[i][[2]] == 9, 
+    letters += 6]];
+  If[IntegerDigits[i][[2]] != 1,
+   Which[
+    IntegerDigits[i][[3]] == 1, letters += 3, IntegerDigits[i][[3]] == 2, 
+    letters += 3, IntegerDigits[i][[3]] == 3, letters += 5, 
+    IntegerDigits[i][[3]] == 4, letters += 4, IntegerDigits[i][[3]] == 5, 
+    letters += 4, IntegerDigits[i][[3]] == 6, letters += 3, 
+    IntegerDigits[i][[3]] == 7, letters += 5, IntegerDigits[i][[3]] == 8, 
+    letters += 5, IntegerDigits[i][[3]] == 9, letters += 4]];
+  (*hundred=7; hundred and=10*)
+  If[IntegerDigits[i][[2]] == 0 && IntegerDigits[i][[3]] == 0, letters += 7, 
+   letters += 10],
+  (*2 digit*)
+  Length[IntegerDigits[i]] == 2,
+  If[IntegerDigits[i][[1]] == 1,
+   Which[
+    IntegerDigits[i][[2]] == 1, letters += 6, IntegerDigits[i][[2]] == 2, 
+    letters += 6, IntegerDigits[i][[2]] == 3, letters += 8, 
+    IntegerDigits[i][[2]] == 4, letters += 8, IntegerDigits[i][[2]] == 5, 
+    letters += 7, IntegerDigits[i][[2]] == 6, letters += 7, 
+    IntegerDigits[i][[2]] == 7, letters += 9, IntegerDigits[i][[2]] == 8, 
+    letters += 8, IntegerDigits[i][[2]] == 9, letters += 8, 
+    IntegerDigits[i][[2]] == 0, letters += 3],
+   Which[
+    IntegerDigits[i][[1]] == 2, letters += 6, IntegerDigits[i][[1]] == 3, 
+    letters += 6, IntegerDigits[i][[1]] == 4, letters += 5, 
+    IntegerDigits[i][[1]] == 5, letters += 5, IntegerDigits[i][[1]] == 6, 
+    letters += 5, IntegerDigits[i][[1]] == 7, letters += 7, 
+    IntegerDigits[i][[1]] == 8, letters += 6, IntegerDigits[i][[1]] == 9, 
+    letters += 6];
+   If[IntegerDigits[i][[1]] != 1,
+    Which[
+     IntegerDigits[i][[2]] == 1, letters += 3, IntegerDigits[i][[2]] == 2, 
+     letters += 3, IntegerDigits[i][[2]] == 3, letters += 5, 
+     IntegerDigits[i][[2]] == 4, letters += 4, IntegerDigits[i][[2]] == 5, 
+     letters += 4, IntegerDigits[i][[2]] == 6, letters += 3, 
+     IntegerDigits[i][[2]] == 7, letters += 5, IntegerDigits[i][[2]] == 8, 
+     letters += 5, IntegerDigits[i][[2]] == 9, letters += 4]]],
+  (*1 digit*)
+  Length[IntegerDigits[i]] == 1,
+  Which[
+   IntegerDigits[i][[1]] == 1, letters += 3, IntegerDigits[i][[1]] == 2, 
+   letters += 3, IntegerDigits[i][[1]] == 3, letters += 5, 
+   IntegerDigits[i][[1]] == 4, letters += 4, IntegerDigits[i][[1]] == 5, 
+   letters += 4, IntegerDigits[i][[1]] == 6, letters += 3, 
+   IntegerDigits[i][[1]] == 7, letters += 5, IntegerDigits[i][[1]] == 8, 
+   letters += 5, IntegerDigits[i][[1]] == 9, letters += 4]]]
+?letters
