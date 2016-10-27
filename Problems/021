@@ -1,0 +1,5 @@
+sum = 0;
+a = 0;
+While[a < 10000, b = Total[Divisors[a]] - a; 
+ If[b < a && Total[Divisors[b]] - b == a, sum += a; sum += b;] a++]
+sum
