@@ -1,0 +1,5 @@
+total = 0;
+n = 0;
+While[n < Length[DigitCount[100!]], total += n*DigitCount[100!][[n]]; 
+ n++]
+total
