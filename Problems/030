@@ -1,0 +1,4 @@
+sum = 0
+For[a = 0, a < 1000000, a++, 
+ If[Total[IntegerDigits[a]^5] == a, sum += a]]
+Print[sum - 1]
