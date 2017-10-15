@@ -1,0 +1,4 @@
+sum = 0
+For[a = 0, a < 100000, a++, 
+ If[Total[Factorial[IntegerDigits[a]]] == a, sum += a]]
+Print[sum - 1 - 2]
